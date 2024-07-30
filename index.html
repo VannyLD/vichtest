@@ -22,6 +22,18 @@
             overflow: hidden;
             z-index: -1;
         }
+        
+        #name-button {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            font-size: 2em;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
 
         video {
             position: absolute;
@@ -52,10 +64,12 @@
     <div id="video-container">
         <video id="video" playsinline></video>
     </div>
+    <div id="name-button">Your Title Here</div>
     <div id="start-button">Start</div>
     <script>
         const videoElement = document.getElementById('video');
         const startButton = document.getElementById('start-button');
+        const nameButton = document.getElementById('name-button'); // Correct reference
         const videoFiles = ['1.mp4', '2.mp4', '3.mp4'];
         let currentIndex = 0;
 
@@ -70,7 +84,8 @@
         videoElement.addEventListener('ended', playNextVideo);
 
         startButton.addEventListener('click', () => {
-            startButton.style.display = 'none'; // Hide the start button
+            startButton.style.display = 'none';
+            nameButton.style.display = 'none'; // Correctly hide the name button
             playNextVideo(); // Start playing the first video
         });
     </script>
